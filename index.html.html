@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TS.BS. Đặng Hoàng Thơm | Trưởng Khoa Sọ Mặt và Tạo Hình - Bệnh viện Nhi Trung Ương</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #0080ff;
+            --dark-color: #1a252c;
+            --light-bg: #f8f9fa;
+            --accent-color: #20c997;
+            --text-color: #333333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            color: var(--text-color);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--dark-color);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        /* Header & Nav */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+        .logo-text h1 {
+            font-size: 1.15rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: #fff !important;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .btn-cta:hover {
+            background-color: #004085;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            padding: 70px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            min-height: 520px;
+        }
+        .hero-content {
+            flex: 1;
+            max-width: 750px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #e1effe;
+            color: #1e429f;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .hero-content h2 {
+            font-size: 2.3rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .hero-content p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .doctor-card-frame {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 340px;
+            margin: 0 auto;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        .doctor-avatar {
+            width: 100%;
+            height: 320px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+        .doctor-avatar i {
+            font-size: 6rem;
+        }
+        /* Sections */
+        section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1rem;
+        }
+        /* Research Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .research-card {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .research-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .research-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .tag {
+            background: #e2f0d9;
+            color: #385723;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .btn-download {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-download:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 30px 5%;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div><i class="fa-solid fa-hospital"></i> Bệnh viện Nhi Trung Ương | <i class="fa-solid fa-location-dot"></i> 18/879 La Thành, Đống Đa, Hà Nội</div>
+        <div>
+            <a href="mailto:taohinhsomat@nch.gov.vn"><i class="fa-solid fa-envelope"></i> Liên hệ chuyên môn</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-user-doctor"></i>
+                <div class="logo-text">
+                    <h1>TS.BS. Đặng Hoàng Thơm</h1>
+                    <span>Trưởng Khoa Sọ Mặt và Tạo Hình</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#research">Công trình Nghiên cứu</a></li>
+                <li><a href="#expertise">Chuyên môn lâm sàng</a></li>
+                <li><a href="#contact" class="btn-cta">Hợp tác & Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-award"></i> Chuyên gia Phẫu thuật Tạo hình & Sọ mặt Nhi khoa</span>
+            <h2>TS.BS. Đặng Hoàng Thơm</h2>
+            <p>Trưởng Khoa Sọ Mặt và Tạo Hình – Bệnh viện Nhi Trung Ương[cite: 1, 2]. Chuyên sâu về phẫu thuật tạo hình dị tật sọ mặt bẩm sinh phức tạp (Apert, Crouzon, Pierre Robin), kéo giãn xương hàm, tạo hình hộp sọ và tái tạo vi phẫu.</p>
+            <a href="#research" class="btn-cta" style="padding: 12px 25px; display: inline-block;">Khám Phá Công Trình Nghiên Cứu</a>
+        </div>
+        <div class="hero-image">
+            <div class="doctor-card-frame">
+                <div class="doctor-avatar">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <h3 style="font-size: 1.1rem; color: var(--dark-color); margin-bottom: 5px;">TS.BS. Đặng Hoàng Thơm</h3>
+                <p style="font-size: 0.85rem; color: #666;">Trưởng Khoa Sọ Mặt và Tạo Hình</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="section-title">
+            <h2>Công Trình Nghiên Cứu Khoa Học</h2>
+            <p>Các đề tài, báo cáo lâm sàng và giải pháp phẫu thuật chuyên sâu</p>
+        </div>
+        <div class="research-grid">
+            <div class="research-card">
+                <div>
+                    <span class="tag">Phẫu thuật Sọ mặt</span>
+                    <h3>Kết quả tạo hình hộp sọ bằng phương pháp kéo giãn phức hợp trán – ổ mắt (FOD)</h3>
+                    <p>Nghiên cứu đánh giá hiệu quả lâm sàng, giải phẫu và phục hồi chức năng trên bệnh nhân dính khớp trán – đỉnh một bên tại Bệnh viện Nhi Trung Ương[cite: 1, 2].</p>
+                </div>
+                <div class="card-footer">
+                    <span style="font-size: 0.85rem; color: #888;"><i class="fa-solid fa-calendar-days"></i> Nghiên cứu khoa học</span>
+                    <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Tải PDF / Xem</a>
+                </div>
+            </div>
+            
+            <div class="research-card">
+                <div>
+                    <span class="tag">Nhi khoa Lâm sàng</span>
+                    <h3>Ứng dụng phương pháp kéo giãn xương hàm trong hội chứng Pierre Robin</h3>
+                    <p>Đánh giá kết quả phẫu thuật sớm về chức năng hô hấp và phát triển xương hàm ở trẻ sơ sinh và trẻ nhỏ.</p>
+                </div>
+                <div class="card-footer">
+                    <span style="font-size: 0.85rem; color: #888;"><i class="fa-solid fa-calendar-days"></i> Báo cáo chuyên đề</span>
+                    <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Tải PDF / Xem</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 TS.BS. Đặng Hoàng Thơm – Khoa Sọ Mặt và Tạo Hình, Bệnh viện Nhi Trung Ương[cite: 1, 2]. All rights reserved.</p>
+        <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Hệ thống thông tin học thuật trực tuyến chuẩn y khoa.</p>
+    </footer>
+
+</body>
+</html>
